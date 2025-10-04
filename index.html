@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Todo List App</title>
+    <link rel="stylesheet" href="css/style.css">
+    </head>
+<body>
+
+    <div class="container">
+        <div class="todo-card">
+            <h1 class="title">Todo List</h1>
+
+            <div class="add-task-form">
+                <input type="text" id="todo-input" placeholder="Add a todo...">
+                
+                <input type="date" id="date-input" placeholder="mm/dd/yyyy">
+                
+                <button id="add-button" class="action-btn add-btn" title="Add Todo">+</button>
+            </div>
+
+            <div class="controls">
+                <button id="filter-button" class="action-btn filter-btn">FILTER</button>
+                
+                <button id="delete-all-button" class="action-btn delete-all-btn">DELETE ALL</button>
+            </div>
+            
+            <div class="task-list-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>TASK</th>
+                            <th>DUE DATE</th>
+                            <th>STATUS</th>
+                            <th>ACTIONS</th>
+                        </tr>
+                    </thead>
+                    <tbody id="task-list-body">
+                        <tr>
+                            <td colspan="4" class="no-task-message">No task found</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
