@@ -1,0 +1,221 @@
+/* Custom properties untuk skema warna gelap */
+:root {
+    --bg-dark: #12121e; /* Background gelap utama */
+    --card-bg: #212132; /* Background card (kontainer todo) */
+    --text-light: #e0e0e0; /* Teks utama terang */
+    --text-secondary: #9a9aae; /* Teks sekunder/placeholder */
+    --btn-primary: #8a7aff; /* Warna ungu untuk tombol Add dan Delete All */
+    --btn-hover: #7162e0; /* Warna hover ungu */
+    --input-bg: #323246; /* Background input */
+    --border-color: #4a4a62; /* Garis pemisah */
+    --delete-task-btn: #ff6b6b; /* Warna merah untuk tombol Delete tugas */
+}
+
+/* Reset dan styling dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Kontainer Utama (Kartu Todo) */
+.todo-card {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 650px; /* Lebar lebih besar agar tabel terlihat bagus */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+.title {
+    text-align: center;
+    color: var(--text-light);
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+/* Form Input */
+.add-task-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.add-task-form input {
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: var(--input-bg);
+    color: var(--text-light);
+    font-size: 16px;
+    /* Mengubah warna ikon kalender default pada input date */
+    filter: invert(1); 
+}
+
+.add-task-form input[type="text"] {
+    flex-grow: 1; 
+}
+
+.add-task-form input[type="date"] {
+    width: 150px; 
+}
+
+.add-task-form input::placeholder {
+    color: var(--text-secondary);
+}
+
+/* Tombol Aksi Umum */
+.action-btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+/* Tombol Add (+) */
+.add-btn {
+    background-color: var(--btn-primary);
+    color: var(--text-light);
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    line-height: 1;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: flex-end; /* Pusatkan secara vertikal jika ada perbedaan tinggi */
+}
+
+.add-btn:hover {
+    background-color: var(--btn-hover);
+}
+
+/* Kontrol Filter dan Delete All */
+.controls {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filter-btn {
+    background-color: var(--input-bg);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    flex-grow: 1;
+    max-width: 100px; /* Mirip dengan gambar */
+}
+
+.filter-btn:hover {
+    background-color: var(--border-color);
+}
+
+.delete-all-btn {
+    background-color: var(--btn-primary);
+    color: var(--text-light);
+}
+
+.delete-all-btn:hover {
+    background-color: var(--btn-hover);
+}
+
+/* Tabel Daftar Tugas */
+.task-list-container {
+    padding: 10px 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    text-align: left;
+}
+
+thead th {
+    color: var(--text-secondary);
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-color);
+    text-transform: uppercase;
+    font-weight: normal;
+}
+
+#task-list-body tr {
+    border-bottom: 1px solid var(--border-color);
+}
+
+#task-list-body tr:last-child {
+    border-bottom: none;
+}
+
+#task-list-body td {
+    padding: 15px 0;
+    color: var(--text-light);
+    vertical-align: middle;
+}
+
+.no-task-message {
+    text-align: center;
+    font-style: italic;
+    color: var(--text-secondary) !important;
+    padding: 20px 0 !important;
+}
+
+/* Styling Status dan Task Completed */
+.status-completed {
+    color: #50fa7b; /* Hijau terang */
+    font-weight: bold;
+}
+
+.status-pending {
+    color: #ffb86c; /* Kuning/Oranye terang */
+    font-weight: bold;
+}
+
+.task-completed {
+    text-decoration: line-through;
+    color: var(--text-secondary);
+}
+
+/* Tombol Aksi di dalam tabel */
+.toggle-status-btn, .delete-task-btn-single {
+    padding: 5px 10px;
+    margin-left: 5px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.delete-task-btn-single {
+    background-color: var(--delete-task-btn);
+    color: var(--text-light);
+}
+
+.delete-task-btn-single:hover {
+    background-color: var(--delete-task-btn);
+    filter: brightness(0.9);
+}
+
+.toggle-status-btn {
+    background-color: #50fa7b; /* Hijau terang */
+    color: var(--bg-dark);
+}
+
+.toggle-status-btn:hover {
+    background-color: #43d46a;
+}
